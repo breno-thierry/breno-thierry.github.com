@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfólio de Breno - Desenvolvedor Web, especialista em HTML, CSS, Python e Java."
+    />
+    <meta
+      name="keywords"
+      content="Desenvolvedor Web, HTML, CSS, Python, Java, Portfólio"
+    />
+    <meta name="author" content="Breno Thierry" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Meu Portfólio</title>
+    <style>
+      /* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: #000;
+    color: #fff;
+}
+
+/* Header */
+header {
+    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 3rem;
+    color: #b74b4b;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+nav a {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover,
+nav a.active {
+    color: #b74b4b;
+    border-bottom: 3px solid #b74b4b;
+}
+
+@media (max-width: 995px) {
+    nav {
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid #b74b4b;
+        border-bottom: 3px solid #b74b4b;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem;
+        background-color: #161616;
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+}
+
+.menu-toggle {
+    display: none;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 995px) {
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Section Styles */
+section {
+    min-height: 100vh;
+    padding: 5rem 9%;
+}
+
+/* Home Section */
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    background-color: #000;
+}
+
+.home-content h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+span {
+    color: #b74b4b;
+}
+
+.home-content h3 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.home-content p {
+    font-size: 1.6rem;
+}
+
+.home-img img {
+    position: relative;
+    width: 32vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px #b74b4b;
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+/* Social Icons */
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid #b74b4b;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+    color: #b74b4b;
+}
+
+.social-icons a:hover {
+    color: #000;
+    transform: scale(1.3) translateY(-5px);
+    background-color: #b74b4b;
+    box-shadow: 0 0 25px #b74b4b;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background-color: #000;
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: #b74b4b;
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+    border: 2px solid #b74b4b;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #b74b4b;
+    color: #000;
+    box-shadow: 0 0 25px #b74b4b;
+}
+
+@media (max-width: 1000px) {
+    .home {
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 995px) {
+    .home {
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+}
+
+/* Services Section */
+#services {
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: #161616;
+    color: #fff;
+}
+
+#services h2 {
+    font-size: 3.6rem;
+    margin-bottom: 2rem;
+    color: #b74b4b;
+}
+
+#services p {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+}
+
+/* Services Section */
+.service-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    background: #222;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 28rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(183, 75, 75, 0.5);
+}
+
+.service-item i {
+    font-size: 4rem;
+    color: #b74b4b;
+    margin-bottom: 1.5rem;
+}
+
+.service-item h3 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.service-item p {
+    font-size: 1.6rem;
+    color: #bbb;
+}
+
+/* Skills Section */
+#skills {
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: #161616;
+    color: #fff;
+}
+
+#skills h2 {
+    font-size: 3.6rem;
+    margin-bottom: 2rem;
+    color: #b74b4b;
+}
+
+#skills p {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+    color: #ccc;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.skill-category {
+    background: #222;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 28rem;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(183, 75, 75, 0.5);
+}
+
+.skill-category h3 {
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+    color: #b74b4b;
+    text-align: center;
+}
+
+.skill-category ul {
+    list-style: none;
+}
+
+.skill-category li {
+    font-size: 1.6rem;
+    margin: 0.8rem 0;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.skill-category li i {
+    color: #b74b4b;
+    margin-right: 1rem;
+    font-size: 1.8rem;
+}
+
+/* Education Section */
+#education {
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: #161616;
+    color: #fff;
+}
+
+#education h2 {
+    font-size: 3.6rem;
+    margin-bottom: 2rem;
+    color: #b74b4b;
+}
+
+#education p {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+    color: #ccc;
+}
+
+.education-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.education-item {
+    background: #222;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 50rem;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(183, 75, 75, 0.5);
+}
+
+.education-item h3 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    color: #b74b4b;
+}
+
+.education-item p {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.education-item span {
+    font-size: 1.4rem;
+    color: #bbb;
+}
+
+/* Experience Section */
+#experience {
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: #161616;
+    color: #fff;
+}
+
+#experience h2 {
+    font-size: 3.6rem;
+    margin-bottom: 2rem;
+    color: #b74b4b;
+}
+
+#experience p {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+    color: #ccc;
+}
+
+.experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.experience-item {
+    background: #222;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 50rem;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(183, 75, 75, 0.5);
+}
+
+.experience-item h3 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    color: #b74b4b;
+}
+
+.experience-item p {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.experience-item span {
+    font-size: 1.4rem;
+    color: #bbb;
+    font-style: italic;
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: #161616;
+    color: #fff;
+}
+
+#contact h2 {
+    font-size: 3.6rem;
+    margin-bottom: 2rem;
+    color: #b74b4b;
+}
+
+#contact p {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+    color: #ccc;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.contact-item {
+    background: #222;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 28rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(183, 75, 75, 0.5);
+}
+
+.contact-item i {
+    font-size: 4rem;
+    color: #b74b4b;
+    margin-bottom: 1.5rem;
+}
+
+.contact-item h3 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.contact-item p a {
+    font-size: 1.6rem;
+    color: #b74b4b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item p a:hover {
+    color: #fff;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">breno</a>
+      <button class="menu-toggle"><i class="fa fa-bars"></i></button>
+      <nav id="menu">
+        <a href="#home" class="active">Início</a>
+        <a href="#services">Serviços</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#education">Educação</a>
+        <a href="#experience">Experiência</a>
+        <a href="#contact">Contato</a>
+      </nav>
+    </header>
+    <section class="home">
+      <div class="home-img">
+        <img src="./img/pory.jpg" alt="Foto de Breno" />
+      </div>
+      <div class="home-content">
+        <h1>Olá, sou <span>Breno</span></h1>
+        <h3 class="typing-text"><span>Web Developer</span></h3>
+        <p>
+          Olá, sou Breno, desenvolvedor web focado em criar soluções práticas e eficientes!
+
+          Atualmente, estou me especializando em:
+          
+          HTML,
+          CSS,
+          Python e
+          Java,
+          com o objetivo de criar soluções tecnológicas que transformem ideias em experiências digitais excepcionais.
+          
+          Experiência e Motivação
+          Tenho experiência em desenvolvimento front-end, criando interfaces modernas e responsivas, e estou expandindo meus conhecimentos para back-end, buscando me tornar um profissional completo.
+          
+          O que me motiva é o aprendizado contínuo e a superação de desafios técnicos.
+          Acredito que a tecnologia deve ser:
+          
+          Acessível,
+          Intuitiva, e
+          Projetada com o usuário em mente.
+          Por isso, dedico meu tempo a explorar novas ferramentas, metodologias e tendências que possam melhorar meus projetos.
+          
+          Além disso, valorizo o trabalho em equipe e a troca de conhecimentos.
+          
+          Tenho como objetivo não apenas crescer como desenvolvedor, mas também colaborar para que os projetos dos quais faço parte sejam memoráveis e impactantes.
+          
+          💡 Minhas áreas de interesse:
+          Desenvolvimento web responsivo;
+          Programação orientada a objetos (POO);
+          Criação de soluções eficientes e otimizadas;
+          Interfaces intuitivas e designs centrados no usuário.
+          📈 Objetivo profissional
+          Contribuir para empresas ou projetos que estejam em busca de soluções inovadoras e que valorizem o crescimento e a criatividade.
+          
+          📫 Contato
+          Estou sempre aberto a conversar e trocar ideias.
+          Entre em contacto pelas minhas redes!</p>
+    </section>
+    <header>
+      <a href="#" class="logo">breno</a>
+      <button class="menu-toggle"><i class="fa fa-bars"></i></button>
+      <nav id="menu">
+        <a href="#home" class="active">Início</a>
+        <a href="#services">Serviços</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#education">Educação</a>
+        <a href="#experience">Experiência</a>
+        <a href="#contact">Contato</a>
+      </nav>
+    </header>
+    
+
+    <!-- Seções -->
+    <section id="home">
+      <h1>Bem-vindo à minha página inicial!</h1>
+    </section>
+
+    <section id="services">
+      <h2>Serviços</h2>
+      <p>
+        Ofereço soluções completas para atender às necessidades do seu projeto,
+        com foco em funcionalidade, design e inovação.
+      </p>
+      <div class="service-container">
+        <div class="service-item">
+          <i class="fa fa-laptop-code"></i>
+          <h3>Desenvolvimento Web</h3>
+          <p>
+            Criação de sites modernos, responsivos e otimizados para todos os
+            dispositivos.
+          </p>
+        </div>
+        <div class="service-item">
+          <i class="fa fa-paint-brush"></i>
+          <h3>Design de Interface</h3>
+          <p>
+            Desenvolvimento de interfaces intuitivas, acessíveis e centradas no
+            usuário.
+          </p>
+        </div>
+        <div class="service-item">
+          <i class="fa fa-cogs"></i>
+          <h3>Integrações</h3>
+          <p>
+            Integração de APIs e ferramentas para aumentar a funcionalidade dos
+            sistemas.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="skills">
+      <h2>Habilidades</h2>
+      <p>
+        Aqui estão algumas das minhas principais habilidades no desenvolvimento
+        web:
+      </p>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>Front-end</h3>
+          <ul>
+            <li><i class="fa fa-check-circle"></i> HTML5</li>
+            <li><i class="fa fa-check-circle"></i> CSS3</li>
+            <li><i class="fa fa-check-circle"></i> JavaScript</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Back-end</h3>
+          <ul>
+            <li><i class="fa fa-check-circle"></i> Python</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Outras Competências</h3>
+          <ul>
+            <li><i class="fa fa-check-circle"></i> Git e GitHub</li>
+            <li><i class="fa fa-check-circle"></i> Resolução de Problemas</li>
+            <li><i class="fa fa-check-circle"></i> Estruturas de Dados</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Educação</h2>
+      <p>
+        Minha formação acadêmica e cursos que contribuíram para o meu
+        desenvolvimento profissional:
+      </p>
+      <div class="education-container">
+        <div class="education-item">
+          <h3>Formação em Desenvolvimento Web</h3>
+          <p>senac</p>
+          <span>Concluído</span>
+        </div>
+        <div class="education-item">
+          <h3>Curso de Desenvolvimento de Habilidades</h3>
+          <p>CiscosS Skills</p>
+          <span>Concluído</span>
+        </div>
+        <div class="education-item">
+          <h3>Curso de Desenvolvimento Full Stack</h3>
+          <p>Daki Code</p>
+          <span>Concluído</span>
+        </div>
+      </div>
+    </section>
+    <section id="experience">
+      <h2>Experiência</h2>
+      <p>
+        Projetos que contribuíram para o meu desenvolvimento como desenvolvedor:
+      </p>
+      <div class="experience-container">
+        <div class="experience-item">
+          <h3>Web Spotify</h3>
+          <p>
+            Desenvolvimento de um site inspirado no Spotify, com layout moderno
+            e responsivo, focado na exibição de playlists e navegação intuitiva.
+          </p>
+          <span>Tecnologias: HTML, CSS, JavaScript</span>
+        </div>
+        <div class="experience-item">
+          <h3>Projeto de Slides Interativos</h3>
+          <p>
+            Criação de um sistema de slides dinâmicos para exibição de conteúdo
+            visual, ideal para apresentações e galerias de imagens.
+          </p>
+          <span>Tecnologias: HTML, CSS, JavaScript</span>
+        </div>
+        <div class="experience-item">
+          <h3>Venda de Carros - Lamborghini</h3>
+          <p>
+            Desenvolvimento de uma landing page promocional para a venda de
+            carros de luxo, com ênfase em design atrativo e experiência do
+            usuário.
+          </p>
+          <span>Tecnologias: HTML, CSS, JavaScript</span>
+        </div>
+        <div class="experience-item">
+          <h3>Saúde Mental</h3>
+          <p>
+            Projeto focado na conscientização sobre saúde mental, com
+            informações acessíveis e um design acolhedor.
+          </p>
+          <span>Tecnologias: HTML, CSS, JavaScript</span>
+        </div>
+        <div class="experience-item">
+          <h3>Guia de Preços</h3>
+          <p>
+            Criação de um site informativo para comparação de preços de produtos
+            e serviços, com layout responsivo e funcional.
+          </p>
+          <span>Tecnologias: HTML, CSS, JavaScript</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contato</h2>
+      <p>
+        Estou sempre aberto a novas oportunidades e colaborações. Entre em
+        contato comigo por uma das opções abaixo:
+      </p>
+      <div class="contact-container">
+        <div class="contact-item">
+          <i class="fa fa-envelope"></i>
+          <h3>Email</h3>
+          <p>
+            <a href="<a href="mailto:brenothierypereira@gmail.com"
+              >brenothierypereira@gmail.com</a
+            >
+          </p>
+        </div>
+        <div class="contact-item">
+          <i class="fa fa-phone"></i>
+          <h3>WhatsApp</h3>
+          <p>
+            <a href="https://wa.me/35974002853" target="_blank"
+              >+55 35 97400-2853</a
+            >
+          </p>
+        </div>
+        <div class="contact-item">
+          <i class="fa-brands fa-linkedin"></i>
+          <h3>LinkedIn</h3>
+          <p>
+            <a
+              href="https://www.linkedin.com/in/breno-thierry-b34970271"
+              target="_blank"
+              >linkedin.com/in/breno-thierry</a
+            >
+          </p>
+        </div>
+        <div class="contact-item">
+          <i class="fa-brands fa-github"></i>
+          <h3>GitHub</h3>
+          <p>
+            <a href="https://github.com/breno-thierry" target="_blank"
+              >github.com/breno-thierry</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle");
+      const nav = document.getElementById("menu");
+      menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+      });
+
+      const phrases = [
+        "Web Developer",
+        "Developer",
+        "Web Designer",
+        "Script Writer",
+      ];
+      let i = 0;
+      const typingText = document.querySelector(".typing-text span");
+
+      setInterval(() => {
+        typingText.textContent = phrases[i];
+        i = (i + 1) % phrases.length;
+      }, 2000);
+    </script>
+  </body>
+</html>
